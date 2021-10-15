@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "testModel": "nodemon model/note.js --ext js"
+    "testModel": "nodemon model/todo.js --ext js"
   },
   "repository": {
     "type": "git",
