@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/extensions
 const Todo = require('../model/todo');
-
+// @todo add error exceptions
 exports.getTodos = async (req, res) => {
   try {
     const todos = await Todo.getDB();
