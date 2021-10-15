@@ -9,7 +9,6 @@ class Todo {
     this.note = note;
   }
 
-
   getId() {
     return this.id;
   }
@@ -35,25 +34,27 @@ class Todo {
 
   static async checkTodo(id) {
     const db = await Todo.getDB();
-    const index = db.todos.findIndex(todo => todo.id === id);
+    const index = db.todos.findIndex((todo) => todo.id === id);
     const todo = db.todos[index];
     todo.isChecked = true;
     db.todos.splice(index, 1, todo);
     await Todo.saveDB(db);
+    return todo;
   }
 
-  static async checkTodo(id) {
+  static async uncheckTodo(id) {
     const db = await Todo.getDB();
-    const index = db.todos.findIndex(todo => todo.id === id);
+    const index = db.todos.findIndex((todo) => todo.id === id);
     const todo = db.todos[index];
     todo.isChecked = false;
     db.todos.splice(index, 1, todo);
     await Todo.saveDB(db);
+    return todo;
   }
 
-  static async checkTodo(id) {
+  static async getTodo(id) {
     const db = await Todo.getDB();
-    const index = db.todos.findIndex(todo => todo.id === id);
+    const index = db.todos.findIndex((todo) => todo.id === id);
     const todo = db.todos[index];
     return todo;
   }
